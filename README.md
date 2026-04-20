@@ -18,8 +18,11 @@ Nella documentazione abbiamo analizzato in generale le architetture ARM, analisi
 
 
 ## Struttura Repository
+
 · /models : Contiene i modelli pre-addestrati 
+
 · /notebooks : Jupyter Notebook con il codice di ogni modello 
+
 · /Documentazione: Analisi tecnica completa e bibliografia. 
 
 ## Autori
