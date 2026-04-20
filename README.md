@@ -27,9 +27,9 @@ Nella documentazione abbiamo analizzato in generale le architetture ARM, analisi
 
 ## Autori
 **Rebecca Spiga** - [Profilo GitHub](https://github.com/kimtaejin220-dev)  
-- Contributo: 
+
 
 **Francesco Roberto Terrosu** - [Profilo GitHub](https://github.com/FrancescoTerrosu)  
-- Contributo: 
+
 
 
