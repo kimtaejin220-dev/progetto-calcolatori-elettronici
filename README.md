@@ -10,7 +10,7 @@ Progetto focalizzato sull'analisi di vari modelli di Motion Capture Markerless.
 I modelli utilizzati sono basati su diverse pipeline di Machine Learning per l'esecuzione in tempo reale: 
       - MoveNet: Analisi delle varianti Lightning, Thunder e MultiPose; 
       - MediaPipe Holistic: Ricostruzione integrale di corpo, mani e volto; 
-      - YOLOv8 + MediaPipe : Approccio sperimentale di unione tra l'object                 detection YOLOv8 per il multitracking multi-persona con la stima della             posa di MediaPipe
+      - YOLOv8 + MediaPipe : Approccio sperimentale di unione tra l'object detection YOLOv8 per il multitracking multi-persona con la stima della posa di MediaPipe
 
 
 La nostra analisi è stata condotta interamente su **CPU**, a causa di vincoli con le librerie Metal. 
