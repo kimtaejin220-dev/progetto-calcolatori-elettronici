@@ -12,7 +12,7 @@ Visual validation across different markerless tracking frameworks:
 
 | MoveNet (17 Body Keypoints) | MediaPipe Holistic (Pose + Hands + 468 Face Mesh) |
 | :---: | :---: |
-| <img width="438" alt="MoveNet Qualitative" src="https://github.com/user-attachments/assets/701c0023-b4f9-4821-86ad-b23d9096e0bb" /> | <img width="466" alt="MediaPipe Qualitative" src="https://github.com/user-attachments/assets/24d27fcd-fe51-426d-b5ac-c54a2054e04d" /> |
+| <img width="438" alt="MoveNet Qualitative" src="https://github.com/user-attachments/assets/701c0023-b4f9-4821-86ad-b23d9096e0bb" /> | <img width="485" height="268" alt="Captura de pantalla 2026-09-23 a las 16 56 10" src="https://github.com/user-attachments/assets/bd30dd36-331c-4301-93ce-33639690618e" /> |
 | *Bottom-up single-person pose detection running MobileNetV2 backbone.* | *Multi-stage topology tracking full-body motion, gesture, and facial contours.* |
 
 ---
