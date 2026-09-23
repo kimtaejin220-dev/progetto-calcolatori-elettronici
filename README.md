@@ -5,31 +5,47 @@
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
 
 
-# Progetto Calcolatori Elettronici
-Progetto focalizzato sull'analisi di vari modelli di Motion Capture Markerless. 
-I modelli utilizzati sono basati su diverse pipeline di Machine Learning per l'esecuzione in tempo reale: 
-      - MoveNet: Analisi delle varianti Lightning, Thunder e MultiPose; 
-      - MediaPipe Holistic: Ricostruzione integrale di corpo, mani e volto; 
-      - YOLOv8 + MediaPipe : Approccio sperimentale di unione tra l'object detection YOLOv8 per il multitracking multi-persona con la stima della posa di MediaPipe
+## Performance & Visual Results
 
+### 1. Qualitative Pose Estimation Outputs
+Visual validation across different markerless tracking frameworks:
 
-La nostra analisi è stata condotta interamente su **CPU**, a causa di vincoli con le librerie Metal. 
-Nella documentazione abbiamo analizzato in generale le architetture ARM, analisi di performance dei MacBook M1 e M3. 
+| MoveNet (17 Body Keypoints) | MediaPipe Holistic (Pose + Hands + 468 Face Mesh) |
+| :---: | :---: |
+| <img width="438" alt="MoveNet Qualitative" src="https://github.com/user-attachments/assets/701c0023-b4f9-4821-86ad-b23d9096e0bb" /> | <img width="466" alt="MediaPipe Qualitative" src="https://github.com/user-attachments/assets/24d27fcd-fe51-426d-b5ac-c54a2054e04d" /> |
+| *Bottom-up single-person pose detection running MobileNetV2 backbone.* | *Multi-stage topology tracking full-body motion, gesture, and facial contours.* |
 
+---
 
-## Struttura Repository
+### 2. Apple Silicon ARM CPU Benchmarks (M1 vs M3)
+Due to Metal backend library constraints, all pipelines were benchmarked purely on CPU across various video test sequences.
 
-· /models : Contiene i modelli pre-addestrati 
+#### MoveNet Lightning Performance (FPS & CPU Usage)
+| Architecture Comparison: M1 vs M3 (MoveNet Lightning) |
+| :---: |
+| <img width="1166" alt="MoveNet Benchmark" src="https://github.com/user-attachments/assets/63e06618-6c0c-47c9-8970-e178e85618ee" /> |
+| *M3 achieves slightly higher peak framerates (~25-30 FPS), while complex dynamic sequences throttle both architectures similarly.* |
 
-· /notebooks : Jupyter Notebook con il codice di ogni modello 
+#### MediaPipe Holistic & Resource Utilization
+| MediaPipe Framerate & CPU Scaling | Memory Footprint (RAM) & Model Confidence |
+| :---: | :---: |
+| <img width="580" alt="MediaPipe CPU & FPS" src="https://github.com/user-attachments/assets/79b5fe90-efab-4ffb-9a4c-772ca905e414" /> | <img width="580" alt="MediaPipe RAM & Confidence" src="https://github.com/user-attachments/assets/a9d005b0-6235-472e-9e88-0c223d98ba3d" /> |
+| *MediaPipe peaks at ~20-21 FPS, falling to ~5 FPS under heavy dynamic motion.* | *Identical algorithmic confidence across chips, with M3 exhibiting lower baseline RAM consumption.* |
 
-· /Documentazione: Analisi tecnica completa e bibliografia. 
+---
 
-## Autori
-**Rebecca Spiga** - [Profilo GitHub](https://github.com/kimtaejin220-dev)  
+### 3. Pipeline Specifications Summary
 
+| Feature / Metric | MoveNet Lightning | MoveNet Thunder | MediaPipe Holistic | YOLOv8n + MediaPipe |
+| :--- | :---: | :---: | :---: | :---: |
+| **Input Resolution** | 192 × 192 px | 256 × 256 px | Dynamic | Dynamic (Cropped ROI) |
+| **Target Workload** | Ultra-low latency | High precision | Multi-modal full body | Multi-person tracking |
+| **Keypoints Tracked** | 17 body joints | 17 body joints | 543 (Pose + Hands + Face) | 33 joints per detected person |
+| **Primary Execution** | CPU (Single person) | CPU (Single person) | CPU (Graph pipeline) | Hybrid CPU (YOLO detection + Pose) |
 
-**Francesco Roberto Terrosu** - [Profilo GitHub](https://github.com/FrancescoTerrosu)  
+## Authors
+- **Rebecca Spiga** - [GitHub Profile](https://github.com/kimtaejin220-dev)
+- **Francesco Roberto Terrosu** - [GitHub Profile](https://github.com/FrancescoTerrosu)
 
 
 
